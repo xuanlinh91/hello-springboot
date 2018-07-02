@@ -1,0 +1,20 @@
+version: '3'
+services:
+  mysql:
+   container_name: some-mysql
+   image: mysql:5.6
+   environment:
+    MYSQL_DATABASE: db_example
+    MYSQL_USERNAME: linhnx
+    MYSQL_PASSWORD: 123456
+    MYSQL_ROOT_PASSWORD: 123456
+   ports:
+   - "3306:3306"
+   restart: always
+
+  app:
+    restart: always
+    image: hello
+    working_dir: /app
+    expose:
+      - "8080"
